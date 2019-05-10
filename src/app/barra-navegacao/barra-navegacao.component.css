@@ -1,0 +1,16 @@
+.barra-navegacao {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+.barra-navegacao ul,
+.barra-navegacao ul a {
+    height: 60px;
+}
+
+.barra-navegacao ul a:hover {
+    transition: 1s;
+    border-bottom: 5px solid rgba(238, 110, 115, 0.7);
+}
