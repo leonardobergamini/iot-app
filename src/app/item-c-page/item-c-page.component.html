@@ -1,6 +1,49 @@
-<div class="row">
-    <p class="flow-text">Recupera o último valor lido no sensor, no formato JSON (value: valor)</p>
-    <div class="center">
-        <a class="waves-effect waves-light btn-large pink lighten-1" id="btn-requisitar">Requisitar</a>
+<iot-header [titulo]="'Item C'"></iot-header>
+
+<div class="container">
+    <div class="row">
+        <p class="flow-text">Recupera o último valor lido no sensor, no formato JSON (value: valor)</p>
+    </div>
+
+    <div class="row">
+        <div class="sensores">
+            <div class="col s6" id="fotorresistor" (click)="selecionarFotorresistor()">
+                <div class="card blue lighten-2 hoverable">
+                    <div class="card-content white-text center">
+                        <p>FOTORRESISTOR</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6" id="temperatura" (click)="selecionarTemperatura()">
+                <div class="card blue lighten-2 hoverable">
+                    <div class="card-content white-text center">
+                        <p>TEMPERATURA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center">
+            <span class="center">Selecionado: {{ sensor }}</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center">
+            <a class="waves-effect waves-light btn-large pink lighten-1 disabled" id="btn-requisitar" (click)="toggleResultado()">Requisitar</a>
+        </div>
+
+
+        <div class="loading center hide" style="margin-top: 15px;">
+            <mz-spinner [color]="'blue'" [size]="'small'">
+            </mz-spinner>
+        </div>
+
+        <div class="resultado hide">
+            <iot-card [conteudo]="conteudo"></iot-card>
+        </div>
+
     </div>
 </div>

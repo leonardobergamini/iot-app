@@ -1,6 +1,23 @@
-<div class="row">
-    <p class="flow-text">Recupera a lista dos sensores disponíveis para o dispositivo, no formato JSON</p>
-    <div class="center">
-        <a class="waves-effect waves-light btn-large pink lighten-1" id="btn-requisitar">Requisitar</a>
+<iot-header [titulo]="'Item B'"></iot-header>
+<div class="container">
+    <div class="row">
+        <p class="flow-text">Recupera a lista dos sensores disponíveis para o dispositivo, no formato JSON</p>
+    </div>
+
+    <iot-select-dispositivo id="iot-select" [options]='options'></iot-select-dispositivo>
+
+    <div class="row">
+        <div class="center">
+            <a class="waves-effect waves-light btn-large pink lighten-1" id="btn-requisitar" (click)="toggleResultado()">Requisitar</a>
+        </div>
+
+        <div class="loading center hide" style="margin-top: 15px;">
+            <mz-spinner [color]="'blue'" [size]="'small'">
+            </mz-spinner>
+        </div>
+
+        <div class="resultado hide">
+            <iot-card [conteudo]="conteudo"></iot-card>
+        </div>
     </div>
 </div>

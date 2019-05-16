@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BarraNavegacaoComponent } from './barra-navegacao/barra-navegacao.component';
+import { BarraNavegacaoModule } from './shared/components/barra-navegacao/barra-navegacao.module';
 import { InicioPageModule } from './inicio-page/inicio-page.module';
 import { ItemAPageModule } from './item-a-page/item-a-page.module';
 import { ItemBPageModule } from './item-b-page/item-b-page.module';
@@ -14,9 +14,7 @@ import { ItemEPageModule } from './item-e-page/item-e-page.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    BarraNavegacaoComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +24,10 @@ import { ItemEPageModule } from './item-e-page/item-e-page.module';
     ItemBPageModule,
     ItemCPageModule,
     ItemDPageModule,
-    ItemEPageModule
+    ItemEPageModule,    
+    HttpClientModule,
+    BarraNavegacaoModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

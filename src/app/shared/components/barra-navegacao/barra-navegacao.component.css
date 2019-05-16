@@ -1,0 +1,6 @@
+.barra-navegacao {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}

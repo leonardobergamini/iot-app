@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import * as $ from 'jquery';
 
 import { ItemAPageService } from './item-a-page.service';
-
-
 
 @Component({
   selector: 'iot-item-a-page',
@@ -15,19 +13,25 @@ import { ItemAPageService } from './item-a-page.service';
 
 export class ItemAPageComponent implements OnInit {
 
-  //private http: HttpClient
-  constructor() { }
+  conteudo: string = '';
+  itemService: ItemAPageService;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    // $('#btn-requisitar').click(() =>{
-    //   const itemService = new ItemAPageService(this.http);
+      this.itemService = new ItemAPageService(this.http);
+  }
 
-    //   itemService.getItemA().subscribe(
-    //     response => console.log(response),
-    //     err => console.log(err.message)
-    //   )
-    // });
-
+  toggleResultado(){
+    $('.loading').toggleClass('hide');
+    this.itemService.getItemA().toPromise()
+      .then(response =>{
+        this.conteudo = JSON.stringify(response);  
+      })
+      .catch(err => console.log(err))
+      .finally(() => {
+        $('.loading').toggleClass('hide')
+        $('.resultado').toggleClass('hide')
+      })
   }
 
 }

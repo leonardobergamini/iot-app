@@ -9,6 +9,6 @@ export class ItemAPageService {
   constructor(private http: HttpClient) { }
 
   getItemA(){
-    return this.http.get("URL");
+    return this.http.get("http://localhost:8080/nac2-iot/fiap/iot/turma/4sis/grupo/nostres/devtype/arduino/devid/sensor/all");
   }
 }
